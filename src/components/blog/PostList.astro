@@ -1,6 +1,6 @@
 ---
 import { type BlogEntry } from '../../content/config';
-import { Post } from '.';
+import { PostLink } from '.';
 interface PostListProps {
   posts: BlogEntry[];
 }
@@ -11,7 +11,7 @@ const { posts } = Astro.props as PostListProps;
   {
     posts.map(post => (
       <li>
-        <Post post={post} />
+        <PostLink post={post} />
       </li>
     ))
   }

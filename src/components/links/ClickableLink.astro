@@ -1,7 +1,7 @@
 ---
 import { addBaseUrl } from '../../utils/url';
 const { href, ...props } = Astro.props;
-const finalHref = addBaseUrl(href);
+const finalHref: string = addBaseUrl(href);
 ---
 
 <a href={finalHref} {...props}>

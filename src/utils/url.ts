@@ -11,7 +11,7 @@
  */
 
 /**
- * Adds the base deployed URL to a given URL path.
+ * Adds the base deployed URL prefix to a given URL path.
  * @param url - The URL path to which the base URL will be added.
  * @returns The full URL with the base URL prepended.
  */

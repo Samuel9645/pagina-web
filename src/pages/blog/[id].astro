@@ -1,8 +1,13 @@
 ---
 /* @jsxImportSource astro */
 import { render } from 'astro:content';
-import { BasePage } from '../../components/base';
+import { BaseHomeLinkPage } from '../../components/base';
 import { getAllPosts, type BlogEntry } from '../../content/config';
+import { formatPageTitle } from '../../utils/format-page-title';
+
+/**
+ * Generates static paths for each blog post based on their IDs (filenames).
+ */
 export const getStaticPaths = async () => {
   const posts = await getAllPosts();
   const paths = posts.map((post: BlogEntry) => {
@@ -22,6 +27,9 @@ type Props = {
 
 const { post } = Astro.props as Props;
 const { Content } = await render(post);
+const formattedTitle: string = formatPageTitle(post.data.title, post.data.date);
 ---
 
-<BasePage title={post.data.title}><Content /></BasePage>
+<BaseHomeLinkPage title={formattedTitle}>
+  <Content />
+</BaseHomeLinkPage>

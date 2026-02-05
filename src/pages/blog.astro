@@ -1,21 +1,11 @@
 ---
 import { getAllPosts } from '../content/config';
-import { BasePage } from '../components/base';
-import { ClickableLink } from '../components/links';
+import { BaseHomeLinkPage } from '../components/base';
+import { PostList } from '../components/blog';
 
 const posts = await getAllPosts();
 ---
 
-<BasePage title='Blog'>
-  <ul>
-    {
-      posts.map(post => (
-        <li>
-          <ClickableLink href={`/blog/${post.id}`}>
-            {post.data.title}
-          </ClickableLink>
-        </li>
-      ))
-    }
-  </ul></BasePage
->
+<BaseHomeLinkPage title='Blog'>
+  <PostList posts={posts} />
+</BaseHomeLinkPage>

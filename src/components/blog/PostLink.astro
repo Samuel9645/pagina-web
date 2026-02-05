@@ -1,0 +1,13 @@
+---
+import { type BlogEntry } from '../../content/config';
+import { ClickableLink } from '../links';
+import { formatPageTitle } from '../../utils/format-page-title';
+interface PostProps {
+  post: BlogEntry;
+}
+const { post } = Astro.props as PostProps;
+const formattedTitle: string = formatPageTitle(post.data.title, post.data.date);
+const id: string = post.id;
+---
+
+<ClickableLink href={`/blog/${id}`}>{formattedTitle}</ClickableLink>

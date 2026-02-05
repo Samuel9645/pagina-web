@@ -1,0 +1,9 @@
+---
+import { BasePage } from '.';
+import { SpacedClickableLink } from '../links';
+---
+
+<BasePage {...Astro.props}>
+  <slot />
+  <SpacedClickableLink href='/'>Back to Home</SpacedClickableLink>
+</BasePage>
