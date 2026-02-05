@@ -1,0 +1,10 @@
+---
+import { ClickableLink } from '.';
+const props = Astro.props;
+---
+
+<div>
+  <ClickableLink {...props}>
+    <slot />
+  </ClickableLink>
+</div>

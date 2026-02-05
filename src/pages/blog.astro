@@ -1,0 +1,21 @@
+---
+import { getAllPosts } from '../content/config';
+import { BasePage } from '../components/base';
+import { ClickableLink } from '../components/links';
+
+const posts = await getAllPosts();
+---
+
+<BasePage title='Blog'>
+  <ul>
+    {
+      posts.map(post => (
+        <li>
+          <ClickableLink href={`/blog/${post.id}`}>
+            {post.data.title}
+          </ClickableLink>
+        </li>
+      ))
+    }
+  </ul></BasePage
+>

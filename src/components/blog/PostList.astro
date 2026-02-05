@@ -1,0 +1,18 @@
+---
+import { type BlogEntry } from '../../content/config';
+import { Post } from '.';
+interface PostListProps {
+  posts: BlogEntry[];
+}
+const { posts } = Astro.props as PostListProps;
+---
+
+<ul>
+  {
+    posts.map(post => (
+      <li>
+        <Post post={post} />
+      </li>
+    ))
+  }
+</ul>

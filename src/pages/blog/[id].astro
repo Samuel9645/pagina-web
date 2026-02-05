@@ -1,0 +1,27 @@
+---
+/* @jsxImportSource astro */
+import { render } from 'astro:content';
+import { BasePage } from '../../components/base';
+import { getAllPosts, type BlogEntry } from '../../content/config';
+export const getStaticPaths = async () => {
+  const posts = await getAllPosts();
+  const paths = posts.map((post: BlogEntry) => {
+    return {
+      params: { id: post.id },
+      props: {
+        post,
+      },
+    };
+  });
+  return paths;
+};
+
+type Props = {
+  post: BlogEntry;
+};
+
+const { post } = Astro.props as Props;
+const { Content } = await render(post);
+---
+
+<BasePage title={post.data.title}><Content /></BasePage>

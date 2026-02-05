@@ -1,0 +1,10 @@
+---
+import { type BlogEntry } from '../../content/config';
+import { ClickableLink } from '../links';
+interface PostProps {
+  post: BlogEntry;
+}
+const { post } = Astro.props as PostProps;
+---
+
+<ClickableLink href={`/blog/${post.id}`}>{post.data.title}</ClickableLink>
