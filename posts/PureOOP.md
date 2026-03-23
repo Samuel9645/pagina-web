@@ -28,7 +28,7 @@ sealed interface HttpResponseHandler {
 }
 ```
 
-A class for each when clause would be needed, for example:
+A class for each `when` clause would be needed, for example:
 
 ```kotlin
 data object Success : HttpResponseHandler {
